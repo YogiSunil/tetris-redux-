@@ -16,13 +16,6 @@
 
 ---
 
-## Demo
-
-You can see a live demo of the game here:
-
-> [Tetris Redux - Live Demo](#) *(Add demo link if available)*
-
----
 
 ## Getting Started
 
