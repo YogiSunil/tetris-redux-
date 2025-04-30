@@ -6,7 +6,7 @@ import {
   addBlockToGrid,
   checkRows,
   randomShape,
-} from '../utils';
+} from '../utils/inde';
 
 export const gameSlice = createSlice({
   name: 'game',
@@ -77,7 +77,7 @@ export const gameSlice = createSlice({
       return state;
     },
     gameOver: () => {},
-    restart: () => {}
+    restart: () => defaultState()
   },
 });
 

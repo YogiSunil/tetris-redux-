@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# Tetris Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Tetris Redux** is a modernized version of the classic Tetris game, built with **React** and **Redux** for state management. This game features smooth animations, game controls, a scoring system, and a high level of interactivity. It's a fun and interactive way to play the popular puzzle game, enhanced with a Redux-powered game state.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **State Management**: Utilizes Redux to manage the game state, including the board, active block, and game status.
+- **Responsive Design**: The game is fully responsive and adapts to various screen sizes and devices.
+- **Game Controls**: Move, rotate, and drop blocks using keyboard or on-screen buttons.
+- **Next Block Preview**: Displays the upcoming block to give the player a preview of the next move.
+- **Scoreboard**: Keeps track of the player's score and level.
+- **Message Popup**: Displays messages such as "Game Over" or "Pause".
+- **Smooth Animations**: Uses `requestAnimationFrame` to ensure smooth and consistent game animations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Demo
 
-### `npm test`
+You can see a live demo of the game here:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> [Tetris Redux - Live Demo](#) *(Add demo link if available)*
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Make sure you have **Node.js** and **npm** installed on your system. You can check if they're installed by running:
 
-### `npm run eject`
+```bash
+node -v
+npm -v
+If these aren't installed, download and install them from Node.js official website.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Installation
+To get started with Tetris Redux, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/YogiSunil/tetris-redux.git
+cd tetris-redux
+Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+Start the development server:
 
-## Learn More
+```bash
+npm start
+This will launch the game in your browser at http://localhost:3000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Project Structure
+Here’s a breakdown of the project structure:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+plaintext
+Copy
+Edit
+tetris-redux/
+├── src/
+│   ├── components/
+│   │   ├── GridBoard.js      # Displays the game grid and blocks
+│   │   ├── NextBlock.js      # Displays the next block
+│   │   ├── ScoreBoard.js     # Displays the score and level
+│   │   ├── Controls.js       # Game controls for moving/rotating blocks
+│   │   └── MessagePopup.js   # Displays popups like "Game Over"
+│   ├── features/
+│   │   └── gameSlice.js      # Redux slice for game state management
+│   ├── App.css               # CSS file for styling
+│   ├── App.js                # Main component to bring everything together
+│   ├── index.js              # Entry point for the app
+│   └── store.js              # Redux store configuration
+├── public/
+│   ├── index.html            # HTML file that renders the app
+│   └── ...
+└── package.json              # Project dependencies and scripts
 
-### Code Splitting
+## Components
+Here is a summary of the key components in the app:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. GridBoard
+Displays the game grid.
 
-### Analyzing the Bundle Size
+Renders the blocks falling on the grid.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Handles the logic for clearing completed rows.
 
-### Making a Progressive Web App
+2. NextBlock
+Shows the upcoming block that the player will be using next.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. ScoreBoard
+Displays the player's score and level.
 
-### Advanced Configuration
+Updates the score dynamically based on the blocks cleared.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Controls
+Provides buttons for controlling the blocks (Move Left, Move Right, Rotate, Move Down).
 
-### Deployment
+Allows the player to interact with the game.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+5. MessagePopup
+Displays game-related messages such as "Game Over", "Pause", and "Level Up".
 
-### `npm run build` fails to minify
+Redux Slice (gameSlice.js)
+The gameSlice.js file manages the game state using Redux. It includes actions and reducers for the following:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Move: Moving blocks left, right, and down.
+
+Rotate: Rotating the blocks.
+
+Game State: Managing the game’s state (isRunning, gameOver).
+
+Score: Updating and resetting the score as the game progresses.
+
+Block Preview: Handling the next block that will fall.
+
+## Custom Styles
+The game’s styling is done using CSS with a clean, modern look. The App.css file includes custom styles for the board, buttons, score, and popups. Feel free to tweak the styles to personalize the look of the game.
+
+## Contributing
+If you would like to contribute to the project, you can follow these steps:
+
+Fork the repository.
+
+Create a new branch (git checkout -b feature/your-feature-name).
+
+Make your changes and commit them (git commit -am 'Add new feature').
+
+Push your changes to your forked repository (git push origin feature/your-feature-name).
+
+Open a pull request on the main repository.
+
+We welcome improvements, bug fixes, and any other contributions!
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+This project is inspired by the classic Tetris game, with modern features like Redux for state management and React for the user interface.
+
+Special thanks to the open-source community for the tools and libraries that made this project possible.
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import GridSquare from './GridSquare';
-import { shapes } from '../utils';
+import { shapes } from '../utils/inde';
 
 // Represents a 10 x 18 grid of grid squares
 export default function GridBoard() {
@@ -27,8 +27,7 @@ export default function GridBoard() {
       const k = row * grid[0].length + col;
       return <GridSquare key={k} color={color} />;
     })
- );
-    return <div className="grid-board">{gridSquares}</div>;
+  );
   
-
+  return <div className="grid-board">{gridSquares}</div>;
 }
